@@ -50,5 +50,9 @@ const login = async (req, res, next) => {
         next(err)
     }
 }
+const logout = (req, res, next) => {
+    res.clearCookie('user_token')
+    res.status(200).json({ message: 'Bạn đã đăng xuất' })
+}
 
-module.exports = { register, login }
+module.exports = { register, login, logout }

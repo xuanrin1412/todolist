@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 const todolistRouter = require('./routes/todolist.router')
 const authController = require('./routes/auth.router')
@@ -9,6 +10,7 @@ const port = process.env.PORT
 //config middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
 
 
 // Database
